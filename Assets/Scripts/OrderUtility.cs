@@ -14,13 +14,17 @@ public static class OrderUtility
         return order.Content[r];
     }
 
-    public static string GetHistoryDesc()
+    public static string GetHistoryDesc(int max = 2)
     {
         var stringBuilder = new StringBuilder();
         var json = File.ReadAllText(Order.HistoryPath);
         var history = JsonUtility.FromJson<Order.History>(json);
         foreach(var item in history.items)
         {
+            if (max-- <= 0)
+            {
+                break;
+            }
             stringBuilder.AppendLine($"{item.date} 点了 {item.content}");
         }
         return stringBuilder.ToString();
