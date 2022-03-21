@@ -34,4 +34,12 @@ public abstract class BaseUI : MonoBehaviour
     {
         UIManager.Instance.CloseUI(this);
     }
+
+
+    [ContextMenu("Activate")]
+    public void Activate()
+    {
+        UIManager.Instance.Init();
+        Show();
+    }
 }

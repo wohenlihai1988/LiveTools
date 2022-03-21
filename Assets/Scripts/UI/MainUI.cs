@@ -1,30 +1,18 @@
 ﻿using System;
 using System.Text;
-using UnityEngine;
 using UnityEngine.UI;
 
-public class MainUI : BaseUI
+public partial class MainUI : BaseUI
 {
-    public Button m_dateBtn;
-    public Button m_orderBtn;
-    public Button m_ShopBtn;
-
     protected override void OnShow(object showItem)
     {
         InitBtns();
     }
 
-    void InitBtns()
-    {
-        m_dateBtn.onClick.AddListener(ShowDate);
-        m_orderBtn.onClick.AddListener(ShowOrder);
-        m_ShopBtn.onClick.AddListener(ShowShop);
-    }
-
     private void ShowDate()
     {
         var stringBuilder = new StringBuilder();
-        var days = DateUtility.GetNextGirlDay(new DateTime(2022, 1, 24), 28);
+        var days = DateUtility.GetNextDays(new DateTime(2022, 1, 24), 28, DateUtility.AddDays);
         var last = days[days.Count - 2];
         stringBuilder.AppendLine($"上一次是{last.ToShortDateString()}, {last.DayOfWeek}, 已经过了{(DateTime.Now - last).Days}天");
         var next = days[days.Count - 1];

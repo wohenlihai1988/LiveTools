@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,5 +23,23 @@ public class Main : MonoBehaviour
     {
         UIManager.Instance.Init();
         UIManager.Instance.OpenUI<MainUI>(null);
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+
+        }
+    }
+
+    [ContextMenu("HideAll")]
+    public void HideAll()
+    {
+        for(var i = 0; i < m_allUI.Count; i++)
+        {
+            m_allUI[i].Hide();
+        }
+
     }
 }

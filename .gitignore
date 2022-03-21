@@ -59,6 +59,6 @@ sysinfo.txt
 crashlytics-build.properties
 
 #UserDatas
-Assets/StreamingAssets/history.txt
+*/Assets/StreamingAssets/history.txt
 
 
